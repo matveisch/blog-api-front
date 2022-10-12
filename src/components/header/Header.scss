@@ -1,0 +1,19 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 20px;
+  background-color: white;
+  border-radius: 16px;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #buttons {
+    display: flex;
+    gap: 10px;
+  }
+}
