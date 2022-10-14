@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 
-import Header from "./components/header/Header";
 import Post from "./components/post/Post";
 
 import {props} from "./interfaces";
@@ -27,7 +26,6 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <div id="posts">
         {
           posts.map((post, index) => {
