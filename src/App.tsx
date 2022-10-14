@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-
 import Post from "./components/post/Post";
-
 import {props} from "./interfaces";
 
 function App() {
@@ -22,15 +20,15 @@ function App() {
     }
 
     getData();
-  })
+  }, []);
 
   return (
-    <div className="App">
+    <div className="App main-screen">
       <div id="posts">
         {
           posts.map((post, index) => {
             return(
-                <Post title={post.title} body={post.body} date={post.date} comments={post.comments} key={index}/>
+                <Post title={post.title} body={post.body} date={post.date} comments={post.comments} _id={post._id} key={index}/>
             )
           })
         }

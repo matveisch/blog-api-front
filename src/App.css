@@ -5,11 +5,10 @@
 .App {
   background-color: #BEBEBE;
   padding: 19px 14px;
-  height: calc(100vh - 68px - 38px);
 }
 
 #posts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
 }
