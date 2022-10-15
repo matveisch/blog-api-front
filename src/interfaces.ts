@@ -1,6 +1,7 @@
 export interface comment {
     body: string,
-    date: Date
+    date: Date,
+    _id?: string
 }
 
 export interface post {

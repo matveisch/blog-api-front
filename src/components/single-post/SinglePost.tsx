@@ -25,7 +25,7 @@ const SinglePost = () => {
 
     async function postComment() {
         try {
-            const result = await fetch(`http://localhost:4000/posts/${id}/comments`, {
+            await fetch(`http://localhost:4000/posts/${id}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -64,15 +64,14 @@ const SinglePost = () => {
                     <div className="create-comment">
                         <form>
                             <div className="input-block">
-                                <label htmlFor="body">New comment</label>
-                                <textarea ref={commentBody} id="body" name="body" onChange={(e) => handleDataChange(e)}/>
+                                <textarea ref={commentBody} id="body" name="body" placeholder="Add a comment..." onChange={(e) => handleDataChange(e)}/>
                             </div>
                             <input type="button" value="post" onClick={handleCommentPost} />
                         </form>
                     </div>
                     {post.comments && post.comments.map((comment, index) => {
                         return(
-                            <Comment body={comment.body} date={comment.date} key={index} />
+                            <Comment body={comment.body} date={comment.date} _id={comment._id} key={index} />
                         )
                     })}
                 </div>
