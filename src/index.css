@@ -19,4 +19,6 @@ a {
 
 .main-screen {
   height: calc(100vh - 68px - 38px);
+  background-color: #BEBEBE;
+  padding: 19px 14px;
 }

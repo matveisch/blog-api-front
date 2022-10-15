@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App main-screen">
+    <div className="App">
       <div id="posts">
         {
           posts.map((post, index) => {

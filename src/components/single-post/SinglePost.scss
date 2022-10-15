@@ -1,3 +1,27 @@
 .single-post {
+  background-color: white;
+  border-radius: 16px;
+  padding: 15px 20px;
 
+  .post-block {
+    .title {
+      margin-bottom: 20px;
+
+      .h1-span {
+        font-weight: normal;
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  .comments {
+    margin-top: 20px;
+
+    .input-block {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+  }
 }

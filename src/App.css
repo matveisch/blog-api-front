@@ -2,11 +2,6 @@
   margin: 0;
 }
 
-.App {
-  background-color: #BEBEBE;
-  padding: 19px 14px;
-}
-
 #posts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
