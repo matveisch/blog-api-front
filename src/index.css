@@ -22,3 +22,7 @@ a {
   background-color: #BEBEBE;
   padding: 19px 14px;
 }
+
+.relative {
+  position: relative;
+}
