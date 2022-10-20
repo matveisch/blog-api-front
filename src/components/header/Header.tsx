@@ -19,8 +19,8 @@ const Header = (props: Props) => {
         <header id="header">
             <Link to="/" ><h1>Blog</h1></Link>
             <div id="buttons">
-                <a href=""><img src={createPost} alt=""/></a>
-                <a href="" onClick={handleClick}><img src={signIn} alt=""/></a>
+                {localStorage.getItem('token') ? <a href=""><img src={createPost} alt=""/></a> : ''}
+                {localStorage.getItem('token') ? <h2>Hello, {localStorage.getItem('user')}</h2> : <a href="" onClick={handleClick}><img src={signIn} alt=""/></a>}
             </div>
         </header>
     );

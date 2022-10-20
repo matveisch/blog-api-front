@@ -31,8 +31,24 @@ const Login = (props: Props) => {
         }));
     }
 
-    function logIn() {
+    async function logIn() {
+        try {
+            const request = await fetch('http://localhost:4000/user/login', {
+                method: 'POST',
+                body: JSON.stringify(userData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
 
+            const data = await request.json();
+
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', data.user.username);
+            props.setLogin(false);
+        } catch (e) {
+            if (e) console.log(e);
+        }
     }
 
     return (
@@ -46,7 +62,7 @@ const Login = (props: Props) => {
                     <input type="text" id="username" name="username" onChange={handleChange}/>
                     <label htmlFor="password">password</label>
                     <input type="text" id="password" name="password" onChange={handleChange}/>
-                    <input type="button" value="log in"/>
+                    <input type="button" value="log in" onClick={logIn}/>
                 </form>
             </div>
         </div>

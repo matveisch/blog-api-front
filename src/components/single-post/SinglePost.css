@@ -2,6 +2,8 @@
   background-color: white;
   border-radius: 16px;
   padding: 15px 20px;
+  height: calc(100vh - 68px - 38px - 30px);
+  overflow: hidden;
 }
 .single-post .post-block .title {
   margin-bottom: 20px;
@@ -18,6 +20,10 @@
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
+}
+.single-post .comments .list-of-comments {
+  height: calc(100vh - 68px - 38px - 30px - 77px - 20px - 28px - 69px);
+  overflow: scroll;
 }
 
 /*# sourceMappingURL=SinglePost.css.map */

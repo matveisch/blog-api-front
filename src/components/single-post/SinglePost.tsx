@@ -4,13 +4,14 @@ import {post} from "../../interfaces";
 import {useParams} from "react-router-dom";
 import Comment from "../comment/Comment";
 
-const SinglePost = () => {
+const SinglePost: React.FC = () => {
     const {id} = useParams();
-    const [post, setPost] = useState<post>();
-    const [comment, setComment] = useState({
-        body: ''
-    });
     const commentBody = useRef<HTMLTextAreaElement>(null);
+
+    const [post, setPost] = useState<post>();
+    const [comment, setComment] = useState({body: ''});
+    const [commentPosted, setCommentPosted] = useState(false);
+
 
     useEffect(() => {
         async function getPost() {
@@ -21,7 +22,9 @@ const SinglePost = () => {
         }
 
         getPost();
-    }, [id, post?.comments]);
+
+        setCommentPosted(false);
+    }, [commentPosted]);
 
     async function postComment() {
         try {
@@ -32,6 +35,8 @@ const SinglePost = () => {
                 },
                 body: JSON.stringify(comment)
             });
+
+            setCommentPosted(true);
         } catch (e) {
             if (e) console.log(e);
         }
@@ -69,11 +74,13 @@ const SinglePost = () => {
                             <input type="button" value="post" onClick={handleCommentPost} />
                         </form>
                     </div>
-                    {post.comments && post.comments.map((comment, index) => {
-                        return(
-                            <Comment body={comment.body} date={comment.date} _id={comment._id} key={index} />
-                        )
-                    })}
+                    <div className="list-of-comments">
+                        {post.comments && post.comments.map((comment, index) => {
+                            return(
+                                <Comment body={comment.body} date={comment.date} _id={comment._id} setCommentPosted={setCommentPosted} key={index} />
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         );
